@@ -1,10 +1,13 @@
 {
     "nivel_1":{
+        "stage_timer": 15,
         "ruta_mazos": "modules/assets/cards/",
-        "mazo_enemigo": "red_deck_expansion_3",
-        "mazo_player": "blue_deck_expansion_2",
-        "coordenadas_mazo_enemigo": [0,0],
-        "coordenadas_mazo_player": [0,0],
-        "cantidad_cartas_jugadores": 10
+        "mazo_enemigo": "",
+        "mazo_player": "",
+        "coordenadas_mazo_enemigo": [312, 130],
+        "coordenadas_finales_enemigo": [512, 130],
+        "coordenadas_mazo_player": [312, 490],
+        "coordenadas_finales_player": [512, 490],
+        "cantidad_cartas_jugadores": 5
     }
 }
