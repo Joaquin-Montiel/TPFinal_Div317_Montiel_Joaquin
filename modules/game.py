@@ -35,7 +35,7 @@ def dragon_ball():
 
     datos_juego = {}
 
-    controlador_ui = form_controller.create_form_controller(screen_game, datos_juego)
+    controlador_ui = form_controller.create_form_controller(screen_game)
     running = True
 
     while running:
