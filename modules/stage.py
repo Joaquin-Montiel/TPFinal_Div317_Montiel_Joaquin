@@ -1,5 +1,6 @@
 import pygame as pg
 import random as rd
+import copy
 import modules.variables as var
 import modules.carta as carta
 import modules.player_juego as participante
@@ -93,14 +94,18 @@ def generar_mazo(stage_data: dict) -> None:
     Inicializa los objetos Carta a partir de los diccionarios de stats cargados 
     (cartas_mazo_inicial_e/j) y los agrega a las listas de cartas preparadas.
     """
-    for carta_inicial_e, carta_inicial_j in zip(
-        stage_data.get('cartas_mazo_inicial_e'),
-        stage_data.get('cartas_mazo_inicial_j')
-    ):
-        carta_power_e = carta.inicializar_carta(carta_inicial_e, (0,0))
-        carta_power_j = carta.inicializar_carta(carta_inicial_j, (0,0))
-        stage_data.get('cartas_mazo_preparadas_e').append(carta_power_e)
-        stage_data.get('cartas_mazo_preparadas_j').append(carta_power_j)
+    mazo_e = stage_data.get('cartas_mazo_inicial_e')
+    mazo_j = stage_data.get('cartas_mazo_inicial_j')
+
+    if not mazo_e or not mazo_j:
+        print('ERROR: Mazos vacíons o no cargados.')
+
+    for carta_inicial_e, carta_inicial_j in zip(mazo_e, mazo_j):
+        carta_copia_e = carta.inicializar_carta(copy.deepcopy(carta_inicial_e), (0,0))
+        carta_copia_j = carta.inicializar_carta(copy.deepcopy(carta_inicial_j), (0,0))
+
+        stage_data.get('cartas_mazo_preparadas_e').append(carta_copia_e)
+        stage_data.get('cartas_mazo_preparadas_j').append(carta_copia_j)
 
 def barajar_mazo(stage_data: dict) -> None:
     """
@@ -172,6 +177,25 @@ def get_stats(stage_data: dict) -> tuple:
 
     return jugador, enemigo, hp_j, hp_e, cartas_j, cartas_e
 
+def comparar_operadores(operador: str):
+    """
+    Función de orden superior que retorna una función lambda para realizar una 
+    comparación binaria específica (==, >, o <).
+    Esto permite utilizar operadores de comparación de forma dinámica en filtros 
+    o funciones de mapeo, siguiendo el paradigma funcional.
+    Args: -operador (str): El operador de comparación deseado ('==', '>', '<').
+    Returns: -function: Una función lambda que acepta dos argumentos (a, b) y 
+            retorna True si la comparación es exitosa, o False si el operador 
+            no es reconocido o la comparación falla.
+    """
+    if operador == '==':
+        return lambda a, b: a == b
+    elif operador == '>':
+        return lambda a, b: a > b
+    elif operador == '<':
+        return lambda a, b: a < b
+    return lambda a, b: False
+
 
 def check_win_by_time(stage_data: dict) -> str | None:
     """
@@ -190,10 +214,8 @@ def check_win_by_time(stage_data: dict) -> str | None:
         stage_data['juego_finalizado'] = True
         return 'EMPATE'
 
-    if hp_j > hp_e:
-        ganador = jugador
-    else:
-        ganador = enemigo
+    es_mayor = comparar_operadores('>')
+    ganador = jugador if es_mayor(hp_j, hp_e) else enemigo
 
     setear_ganador(stage_data, ganador)
     return ganador
@@ -226,16 +248,16 @@ def check_empate(stage_data: dict) -> str | None:
     """
     jugador, enemigo, hp_j, hp_e, cartas_j, cartas_e = get_stats(stage_data)
 
-    if hp_j <= 0 and hp_e <= 0:
-        if hp_j == hp_e:
+    iguales = comparar_operadores('==')
+
+    if hp_j <= 0 and hp_e <= 0 and iguales(hp_j, hp_e):
             return 'EMPATE'
 
     
-    if cartas_j == 0 and cartas_e == 0:
-        if hp_j ==  hp_e:
+    if cartas_j == 0 and cartas_e == 0 and iguales(hp_j, hp_e):
             return 'EMPATE'
 
-    if stage_data['stage_timer'] <= 0 and hp_j == hp_e:
+    if stage_data['stage_timer'] <= 0 and iguales(hp_j, hp_e):
         return 'EMPATE'
 
     return None
@@ -288,10 +310,8 @@ def comparar_damage(stage_data: dict) -> tuple[bool, str] | None:
                 participante.restar_stats_player(jugador, carta_enemigo, critical)
         else:
             ganador_mano = 'PLAYER'
-            score = atk_jugador - def_enemigo
-
-            damage = score
-            damage = max(0, damage)
+            calcular_damage = lambda atk,defense: max(0, atk - defense)
+            damage =  calcular_damage(atk_jugador, def_enemigo)
 
             participante.restar_stats_player(enemigo, carta_jugador, critical)
             participante.add_score_player(jugador, damage)

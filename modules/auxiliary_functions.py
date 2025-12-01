@@ -27,20 +27,6 @@ def parsear_entero(valor: str) -> int:
         return int(valor)
     return valor
 
-#def cargar_ranking(file_path: str, top: int = 10):
-#    ranking = []
-#    with open(file_path, 'r',encoding='utf-8') as file:
-#        texto = file.read()
-#
-#        for linea in texto.split('\n'):
-#            if linea:
-#                lista_datos = linea.split(',')
-#                ranking.append(lista_datos)
-#    
-#    mapear_valores(ranking, columna_a_mapear=1, callback=parsear_entero)
-#    ranking = ranking[1:]
-#    ranking.sort(key=lambda fila: fila[1], reverse=True)
-#    return ranking[:top]
 
 def cargar_ranking(file_path: str, top: int = 10) -> list:
     """
@@ -126,20 +112,18 @@ def generar_bd_cartas(path_mazo: str) -> dict:
     for root, dir, files in os.walk(path_mazo):
         reverse_path = ''
         deck_cards = []
-        deck_name = ''
+        deck_name = root.replace('\\', '/').split('/')[-1]
         for carta in files:
-            card_path = os.path.join(root, carta)
-            deck_name = root.replace('\\', '/').split('/')[-1]
+            card_path = os.path.join(root, carta).replace('\\', '/')
+            
             print(f'DECK NAME: {deck_name}')
 
-            if 'reverse' in card_path:
-                reverse_path = card_path.replace('\\', '/')
-            else:
-                card_path = card_path.replace('\\', '/')
-                filename = carta
+            if 'reverse' in carta:
+                reverse_path = card_path
+                continue
 
-                filename = filename.replace('.png', '')
-                datos_crudos = filename.split('_')
+            filename = carta.replace('.png', '')
+            datos_crudos = filename.split('_')
 
             #1.0_HP_6500_ATK_13000_DEF_7000_10.png
             datos_card = {
@@ -154,10 +138,10 @@ def generar_bd_cartas(path_mazo: str) -> dict:
 
             deck_cards.append(datos_card)
         
-        for index_carta in range(len(deck_cards)):
-            deck_cards[index_carta]['path_reverse'] = reverse_path
+        for reverso_c in deck_cards:
+            reverso_c['path_reverse'] = reverse_path
 
-        if deck_name:
+        if deck_name and deck_cards:
             cartas_dict['cartas'][deck_name] = deck_cards
 
     return cartas_dict
@@ -216,6 +200,10 @@ def load_bd_cartas(stage_data: dict) -> None:
             print('================================== CARGANDO BD CARTAS DESDE DIR ==================================')
             cartas = generar_bd_cartas(stage_data.get('ruta_mazos'))
             save_cards(var.PATH_JSON_CARTAS, cartas)
+
+            stage_data['nombre_mazo_enemigo'] = elegir_mazo_random(cartas)
+            stage_data['nombre_mazo_jugador'] = elegir_mazo_random(cartas)
+
             stage_data['cartas_mazo_inicial_e'] = cartas.get('cartas').get(stage_data.get('nombre_mazo_enemigo'))
             stage_data['cartas_mazo_inicial_j'] = cartas.get('cartas').get(stage_data.get('nombre_mazo_jugador'))
 

@@ -792,15 +792,6 @@
                 "bonus": 10,
                 "path_frente": "modules/assets/cards/black_deck_expansion_1/5.5_HP_3100_ATK_3000_DEF_3300_10.png",
                 "path_reverse": "modules/assets/cards/black_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "5.5",
-                "hp": 3100,
-                "atk": 3000,
-                "def": 3300,
-                "bonus": 10,
-                "path_frente": "modules/assets/cards/black_deck_expansion_1\\reverse.png",
-                "path_reverse": "modules/assets/cards/black_deck_expansion_1/reverse.png"
             }
         ],
         "blue_deck_expansion_1": [
@@ -1172,15 +1163,6 @@
                 "bonus": 2,
                 "path_frente": "modules/assets/cards/blue_deck_expansion_1/5.9_HP_1500_ATK_1400_DEF_1050_2.png",
                 "path_reverse": "modules/assets/cards/blue_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "5.9",
-                "hp": 1500,
-                "atk": 1400,
-                "def": 1050,
-                "bonus": 2,
-                "path_frente": "modules/assets/cards/blue_deck_expansion_1\\reverse.png",
-                "path_reverse": "modules/assets/cards/blue_deck_expansion_1/reverse.png"
             }
         ],
         "blue_deck_expansion_2": [
@@ -1506,15 +1488,6 @@
                 "def": 1850,
                 "bonus": 2,
                 "path_frente": "modules/assets/cards/blue_deck_expansion_2/4.9_HP_2550_ATK_2950_DEF_1850_2.png",
-                "path_reverse": "modules/assets/cards/blue_deck_expansion_2/reverse.png"
-            },
-            {
-                "id": "4.9",
-                "hp": 2550,
-                "atk": 2950,
-                "def": 1850,
-                "bonus": 2,
-                "path_frente": "modules/assets/cards/blue_deck_expansion_2\\reverse.png",
                 "path_reverse": "modules/assets/cards/blue_deck_expansion_2/reverse.png"
             }
         ],
@@ -1986,15 +1959,6 @@
                 "bonus": 2,
                 "path_frente": "modules/assets/cards/blue_deck_expansion_3/9_HP_1700_ATK_1250_DEF_1000_2.png",
                 "path_reverse": "modules/assets/cards/blue_deck_expansion_3/reverse.png"
-            },
-            {
-                "id": "9",
-                "hp": 1700,
-                "atk": 1250,
-                "def": 1000,
-                "bonus": 2,
-                "path_frente": "modules/assets/cards/blue_deck_expansion_3\\reverse.png",
-                "path_reverse": "modules/assets/cards/blue_deck_expansion_3/reverse.png"
             }
         ],
         "golden_deck_expansion_1": [
@@ -2383,15 +2347,6 @@
                 "def": 4600,
                 "bonus": 10,
                 "path_frente": "modules/assets/cards/golden_deck_expansion_1/1.9_HP_4800_ATK_7300_DEF_4600_10.png",
-                "path_reverse": "modules/assets/cards/golden_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "1.9",
-                "hp": 4800,
-                "atk": 7300,
-                "def": 4600,
-                "bonus": 10,
-                "path_frente": "modules/assets/cards/golden_deck_expansion_1\\reverse.png",
                 "path_reverse": "modules/assets/cards/golden_deck_expansion_1/reverse.png"
             }
         ],
@@ -2908,15 +2863,6 @@
                 "bonus": 1,
                 "path_frente": "modules/assets/cards/green_deck_expansion_1/8_HP_300_ATK_480_DEF_240_1.png",
                 "path_reverse": "modules/assets/cards/green_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "8",
-                "hp": 300,
-                "atk": 480,
-                "def": 240,
-                "bonus": 1,
-                "path_frente": "modules/assets/cards/green_deck_expansion_1\\reverse.png",
-                "path_reverse": "modules/assets/cards/green_deck_expansion_1/reverse.png"
             }
         ],
         "green_deck_expansion_2": [
@@ -3387,15 +3333,6 @@
                 "bonus": 1,
                 "path_frente": "modules/assets/cards/green_deck_expansion_2/9_HP_1300_ATK_1500_DEF_750_1.png",
                 "path_reverse": "modules/assets/cards/green_deck_expansion_2/reverse.png"
-            },
-            {
-                "id": "9",
-                "hp": 1300,
-                "atk": 1500,
-                "def": 750,
-                "bonus": 1,
-                "path_frente": "modules/assets/cards/green_deck_expansion_2\\reverse.png",
-                "path_reverse": "modules/assets/cards/green_deck_expansion_2/reverse.png"
             }
         ],
         "green_deck_expansion_3": [
@@ -3758,15 +3695,6 @@
                 "bonus": 2,
                 "path_frente": "modules/assets/cards/green_deck_expansion_3/9_HP_450_ATK_400_DEF_220_2.png",
                 "path_reverse": "modules/assets/cards/green_deck_expansion_3/reverse.png"
-            },
-            {
-                "id": "9",
-                "hp": 450,
-                "atk": 400,
-                "def": 220,
-                "bonus": 2,
-                "path_frente": "modules/assets/cards/green_deck_expansion_3\\reverse.png",
-                "path_reverse": "modules/assets/cards/green_deck_expansion_3/reverse.png"
             }
         ],
         "platinum_deck_expansion_1": [
@@ -3948,15 +3876,6 @@
                 "def": 6000,
                 "bonus": 7,
                 "path_frente": "modules/assets/cards/platinum_deck_expansion_1/1.9_HP_6000_ATK_15000_DEF_6000_7.png",
-                "path_reverse": "modules/assets/cards/platinum_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "1.9",
-                "hp": 6000,
-                "atk": 15000,
-                "def": 6000,
-                "bonus": 7,
-                "path_frente": "modules/assets/cards/platinum_deck_expansion_1\\reverse.png",
                 "path_reverse": "modules/assets/cards/platinum_deck_expansion_1/reverse.png"
             }
         ],
@@ -4247,15 +4166,6 @@
                 "def": 2100,
                 "bonus": 4,
                 "path_frente": "modules/assets/cards/purple_deck_expansion_1/3.0.2_HP_3200_ATK_3400_DEF_2100_4.png",
-                "path_reverse": "modules/assets/cards/purple_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "3.0.2",
-                "hp": 3200,
-                "atk": 3400,
-                "def": 2100,
-                "bonus": 4,
-                "path_frente": "modules/assets/cards/purple_deck_expansion_1\\reverse.png",
                 "path_reverse": "modules/assets/cards/purple_deck_expansion_1/reverse.png"
             }
         ],
@@ -4898,15 +4808,6 @@
                 "bonus": 4,
                 "path_frente": "modules/assets/cards/purple_deck_expansion_2/5.9_HP_4200_ATK_4200_DEF_3200_4.png",
                 "path_reverse": "modules/assets/cards/purple_deck_expansion_2/reverse.png"
-            },
-            {
-                "id": "5.9",
-                "hp": 4200,
-                "atk": 4200,
-                "def": 3200,
-                "bonus": 4,
-                "path_frente": "modules/assets/cards/purple_deck_expansion_2\\reverse.png",
-                "path_reverse": "modules/assets/cards/purple_deck_expansion_2/reverse.png"
             }
         ],
         "red_deck_expansion_1": [
@@ -5422,15 +5323,6 @@
                 "bonus": 3,
                 "path_frente": "modules/assets/cards/red_deck_expansion_1/1_HP_2900_ATK_3950_DEF_2300_3.png",
                 "path_reverse": "modules/assets/cards/red_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "1",
-                "hp": 2900,
-                "atk": 3950,
-                "def": 2300,
-                "bonus": 3,
-                "path_frente": "modules/assets/cards/red_deck_expansion_1\\reverse.png",
-                "path_reverse": "modules/assets/cards/red_deck_expansion_1/reverse.png"
             }
         ],
         "red_deck_expansion_2": [
@@ -5783,15 +5675,6 @@
                 "def": 4000,
                 "bonus": 4,
                 "path_frente": "modules/assets/cards/red_deck_expansion_2/2_HP_4700_ATK_5000_DEF_4000_4.png",
-                "path_reverse": "modules/assets/cards/red_deck_expansion_2/reverse.png"
-            },
-            {
-                "id": "2",
-                "hp": 4700,
-                "atk": 5000,
-                "def": 4000,
-                "bonus": 4,
-                "path_frente": "modules/assets/cards/red_deck_expansion_2\\reverse.png",
                 "path_reverse": "modules/assets/cards/red_deck_expansion_2/reverse.png"
             }
         ],
@@ -6155,15 +6038,6 @@
                 "bonus": 3,
                 "path_frente": "modules/assets/cards/red_deck_expansion_3/7_HP_4900_ATK_4100_DEF_4100_3.png",
                 "path_reverse": "modules/assets/cards/red_deck_expansion_3/reverse.png"
-            },
-            {
-                "id": "7",
-                "hp": 4900,
-                "atk": 4100,
-                "def": 4100,
-                "bonus": 3,
-                "path_frente": "modules/assets/cards/red_deck_expansion_3\\reverse.png",
-                "path_reverse": "modules/assets/cards/red_deck_expansion_3/reverse.png"
             }
         ],
         "silver_deck_expansion_1": [
@@ -6462,15 +6336,6 @@
                 "def": 2100,
                 "bonus": 5,
                 "path_frente": "modules/assets/cards/silver_deck_expansion_1/1.7.1_HP_2300_ATK_3000_DEF_2100_5.png",
-                "path_reverse": "modules/assets/cards/silver_deck_expansion_1/reverse.png"
-            },
-            {
-                "id": "1.7.1",
-                "hp": 2300,
-                "atk": 3000,
-                "def": 2100,
-                "bonus": 5,
-                "path_frente": "modules/assets/cards/silver_deck_expansion_1\\reverse.png",
                 "path_reverse": "modules/assets/cards/silver_deck_expansion_1/reverse.png"
             }
         ],
@@ -6941,15 +6806,6 @@
                 "def": 3000,
                 "bonus": 5,
                 "path_frente": "modules/assets/cards/silver_deck_expansion_2/9.1_HP_3500_ATK_3500_DEF_3000_5.png",
-                "path_reverse": "modules/assets/cards/silver_deck_expansion_2/reverse.png"
-            },
-            {
-                "id": "9.1",
-                "hp": 3500,
-                "atk": 3500,
-                "def": 3000,
-                "bonus": 5,
-                "path_frente": "modules/assets/cards/silver_deck_expansion_2\\reverse.png",
                 "path_reverse": "modules/assets/cards/silver_deck_expansion_2/reverse.png"
             }
         ],
@@ -7474,15 +7330,6 @@
                 "def": 7000,
                 "bonus": 6,
                 "path_frente": "modules/assets/cards/silver_deck_expansion_3/2.0_HP_6000_ATK_10300_DEF_7000_6.png",
-                "path_reverse": "modules/assets/cards/silver_deck_expansion_3/reverse.png"
-            },
-            {
-                "id": "2.0",
-                "hp": 6000,
-                "atk": 10300,
-                "def": 7000,
-                "bonus": 6,
-                "path_frente": "modules/assets/cards/silver_deck_expansion_3\\reverse.png",
                 "path_reverse": "modules/assets/cards/silver_deck_expansion_3/reverse.png"
             }
         ]

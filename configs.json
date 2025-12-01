@@ -1,6 +1,6 @@
 {
     "nivel_1":{
-        "stage_timer": 15,
+        "stage_timer": 60,
         "ruta_mazos": "modules/assets/cards/",
         "mazo_enemigo": "",
         "mazo_player": "",
@@ -8,6 +8,6 @@
         "coordenadas_finales_enemigo": [512, 130],
         "coordenadas_mazo_player": [312, 490],
         "coordenadas_finales_player": [512, 490],
-        "cantidad_cartas_jugadores": 5
+        "cantidad_cartas_jugadores": 25
     }
 }
