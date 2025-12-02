@@ -251,15 +251,13 @@ def check_empate(stage_data: dict) -> str | None:
     iguales = comparar_operadores('==')
 
     if hp_j <= 0 and hp_e <= 0 and iguales(hp_j, hp_e):
-            return 'EMPATE'
+        return 'EMPATE'
 
-    
     if cartas_j == 0 and cartas_e == 0 and iguales(hp_j, hp_e):
-            return 'EMPATE'
+        return 'EMPATE'
 
     if stage_data['stage_timer'] <= 0 and iguales(hp_j, hp_e):
         return 'EMPATE'
-
     return None
 
 def chequear_ganador(stage_data: dict) -> dict | None:
@@ -293,6 +291,8 @@ def comparar_damage(stage_data: dict) -> tuple[bool, str] | None:
     critical = False
     carta_jugador = participante.get_carta_actual_player(jugador)
     carta_enemigo = participante.get_carta_actual_player(enemigo)
+    if not carta_enemigo or not carta_jugador:
+        return None
 
     if carta_enemigo and carta_jugador:
         critical = es_golpe_critico()
@@ -306,6 +306,8 @@ def comparar_damage(stage_data: dict) -> tuple[bool, str] | None:
             if stage_data.get('shield_active'):
                 print('SHIELD ACTIVADO -> Bloqueo de daño recibido.')
                 stage_data['shield_active'] = False
+                participante.restar_stats_player(enemigo, carta_enemigo, critical)
+                participante.add_score_player(jugador, damage)
             else:
                 participante.restar_stats_player(jugador, carta_enemigo, critical)
         else:
@@ -336,12 +338,20 @@ def jugar_mano(stage_data: dict) -> tuple | None:
     Función principal de ejecución de una mano completa de cartas. 
     Llamada por el botón 'PLAY HAND'.
     """
-    if not stage_data.get('juego_finalizado'):
-        jugar_mano_stage(stage_data)
-        critical, ganador_mano = comparar_damage(stage_data)
-        chequear_ganador(stage_data)
-        return critical, ganador_mano
-    return None
+    if stage_data.get('juego_finalizado'):
+        return None
+    
+    jugador, enemigo, hp_j, hp_e, cartas_j, cartas_e = get_stats(stage_data)
+    if cartas_j == 0 or cartas_e == 0:
+        chequear_ganador(stage_data)  
+        return None
+    
+    jugar_mano_stage(stage_data)
+
+    critical, ganador_mano = comparar_damage(stage_data)
+    chequear_ganador(stage_data)
+    return critical, ganador_mano
+
 
 def draw_jugadores(stage_data: dict) -> None:
     """Dibuja las cartas visibles (las últimas jugadas) en la pantalla."""
@@ -353,13 +363,12 @@ def update(stage_data: dict) -> str | None:
     Función de actualización del Stage llamada en cada frame.
     Controla el timer y la finalización del juego.
     """
-    timer_update(stage_data)
-    if stage_data['stage_timer'] <= 0 and not stage_data['juego_finalizado']:
-        ganador = chequear_ganador(stage_data)
-        if ganador is not None:
-            return
-
     if stage_data['juego_finalizado']:
         return "FINISHED"
     
+    timer_update(stage_data)
+
+    if stage_data['stage_timer'] <= 0:
+        ganador = chequear_ganador(stage_data)
+        return "FINISHED"
     return None
